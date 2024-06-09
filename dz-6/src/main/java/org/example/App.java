@@ -1,43 +1,29 @@
 package org.example;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class App {
 
     public static void main(String[] args) {
-        List<String> carBrands = new ArrayList<>();
-        carBrands.add("Tesla");
-        carBrands.add("Ford");
-        carBrands.add("Audi");
+        ArrayList<String> carBrands = new ArrayList<>();
         carBrands.add("Toyota");
+        carBrands.add("Ford");
         carBrands.add("BMW");
-        carBrands.add("Nissan");
-        carBrands.add("BMW");
+        carBrands.add("Mercedes");
+        carBrands.add("Honda");
 
-        removeDouble(carBrands);
-    }
+        String searchString = "Ford";
 
-    public static void removeDouble(List<String> list) {
-        List<String> uniqueCarBrands = new ArrayList<>();
-
-        for (String brand : list) {
-            if (!uniqueCarBrands.contains(brand)) {
-                uniqueCarBrands.add(brand);
+        boolean result = false;
+        System.out.print("Марки автомобілів: ");
+        for (String brand : carBrands) {
+            System.out.print("| " + brand + " | ");
+            if (brand.equals(searchString)) {
+                result = true;
             }
         }
+        System.out.println();
 
-        System.out.println("Список авто: " + list +"\n");
-
-        System.out.println("Результат після змін:");
-        boolean isFirst = true;
-        for (String brand : uniqueCarBrands) {
-            if (!isFirst) {
-                System.out.print(", ");
-            } else {
-                isFirst = false;
-            }
-            System.out.print(brand);
-        }
+        System.out.println("Наявність: " + searchString + " -> " + result);
     }
-
 }
